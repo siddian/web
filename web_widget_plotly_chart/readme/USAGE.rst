@@ -1,5 +1,9 @@
 To insert a Plotly chart in a view proceed as follows:
 
+#. Import the Python libraries at the beginning of the document::
+
+    import plotly
+
 #. Declare a text computed field like this::
 
     plotly_chart = fields.Text(
