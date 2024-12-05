@@ -1,22 +1,20 @@
 /** @odoo-module **/
-import AbstractField from 'web.AbstractField';
+import AbstractField from "web.AbstractField";
 import fieldRegistry from "web.field_registry";
 
 var PlotlyChartWidget = AbstractField.extend({
-    jsLibs: [
-        "/web_widget_plotly_chart/static/src/lib/plotly/plotly-2.35.2.min.js",
-    ],
+    jsLibs: ["/web_widget_plotly_chart/static/src/lib/plotly/plotly-2.35.2.min.js"],
     /**
-    * @override
-    */
+     * @override
+     */
     _renderReadonly: function () {
-        // create dummy element so we can extract the div and the script elements
-        var el = document.createElement('div');
+        // Create dummy element so we can extract the div and the script elements
+        var el = document.createElement("div");
         el.innerHTML = this.value;
-        const div = el.getElementsByTagName('div')[0] || "";
-        var script = el.getElementsByTagName('script')[0] || "";
-        const script_text = script.textContent
-        script.remove()
+        const div = el.getElementsByTagName("div")[0] || "";
+        var script = el.getElementsByTagName("script")[0] || "";
+        const script_text = script.textContent;
+        script.remove();
 
         // There seems to be something weird going on.
         // It is not enough to simply add the javascript.
